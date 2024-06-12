@@ -1,17 +1,28 @@
-public class Box {
-  private int width, height, length;
-  
-  public Box(int width, int height, int length) {
-    this.width = width;
-    this.height = height;
-    this.length = length;
-  }
+import java.util.Arrays;
 
-  public boolean canBeInside(Box otherBox) {
-    boolean canBeInside = false;
-    if((this.width < otherBox.width) && (this.height < otherBox.length) && (this.length < otherBox.length)){
-      canBeInside = true;
+public class Box implements Comparable<Box> {
+    int width, height, length;
+    
+    public Box(int width, int height, int length) {
+        int[] dimensions = {width, height, length};
+        Arrays.sort(dimensions);
+        this.width = dimensions[0];
+        this.height = dimensions[1];
+        this.length = dimensions[2];
     }
-      return canBeInside;
-  } 
+    
+    public boolean canNestInside(Box otherBox) {
+        return this.width < otherBox.width && this.height < otherBox.height && this.length < otherBox.length;
+    }
+
+    @Override
+    public int compareTo(Box other) {
+        if (this.width != other.width) {
+            return this.width - other.width;
+        } else if (this.height != other.height) {
+            return this.height - other.height;
+        } else {
+            return this.length - other.length;
+        }
+    }
 }

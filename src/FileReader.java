@@ -20,11 +20,11 @@ public class FileReader {
       while ((line = br.readLine()) != null) {
         String[] dimensions = line.split(" ");
         int width = Integer.parseInt(dimensions[0]);
-        System.out.println(dimensions[0]);
-        int height = Integer.parseInt(dimensions[1]);
-        System.out.println(dimensions[1]);
         int length = Integer.parseInt(dimensions[2]);
-        System.out.println(dimensions[2]);
+        int height = Integer.parseInt(dimensions[1]);
+        System.out.println("| "+ dimensions[0] + " " + dimensions[1] + " " + dimensions[2] + " |");
+        // System.out.println(dimensions[1]);
+        // System.out.println(dimensions[2]);
         boxes.add(new Box(width, height, length));
       }
     }

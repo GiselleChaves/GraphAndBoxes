@@ -1,0 +1,11 @@
+
+*.class
+*.iml
+.idea/
+*.vscode/
+.DS_Store
+Thumbs.db
+*.log
+/tmp/
+/build/
+/out/
